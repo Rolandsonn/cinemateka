@@ -6,24 +6,12 @@ const Footer = () => {
       <div style={styles.footerContent}>
         <div style={styles.section}>
           <h4>Contact Us</h4>
-          <p>Email: info@example.com</p>
-          <p>Phone: +123-456-7890</p>
         </div>
         <div style={styles.section}>
           <h4>Follow Us</h4>
           <p>
             <a href="https://facebook.com" style={styles.link}>
               Facebook
-            </a>
-          </p>
-          <p>
-            <a href="https://twitter.com" style={styles.link}>
-              Twitter
-            </a>
-          </p>
-          <p>
-            <a href="https://instagram.com" style={styles.link}>
-              Instagram
             </a>
           </p>
         </div>
