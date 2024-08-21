@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchFilms } from "../api/fetchFilms";
 import { useParams } from "react-router-dom";
 import Movie from "../components/Movie/Movie";
+
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
 
