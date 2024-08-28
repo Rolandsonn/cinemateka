@@ -4,8 +4,17 @@ const Form = ({ title, handleClick }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (email !== pass) {
+      handleClick(email, pass);
+    } else {
+      alert("Email и Пароль не должны совпадать");
+    }
+  };
+
   return (
-    <form onSubmit={() => handleClick(email, pass)} className="form-container">
+    <form onSubmit={handleSubmit} className="form-container">
       <input
         type="email"
         required

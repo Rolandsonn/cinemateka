@@ -3,13 +3,17 @@ import { useDispatch } from "react-redux";
 import { setUsers } from "../store/slices/userSlice";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Loader from "./Loader";
 
 const SignUp = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleRegister = (email, password) => {
     const auth = getAuth();
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(
@@ -19,14 +23,19 @@ const SignUp = () => {
             token: user.accessToken,
           })
         );
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => console.log(error));
+    setTimeout(() => setIsLoading(false), 4000);
   };
 
   return (
     <div>
-      <Form title={"Зарегистрироваться"} handleClick={handleRegister} />
+      {!isLoading ? (
+        <Form title={"Зарегистрироваться"} handleClick={handleRegister} />
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

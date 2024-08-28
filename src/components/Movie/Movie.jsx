@@ -4,6 +4,7 @@ const Movie = ({ movie }) => {
   return (
     <div className={styles.container}>
       <AddToFavorites movie={movie} />
+
       <img
         className={styles.img}
         width={200}

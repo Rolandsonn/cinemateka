@@ -5,11 +5,13 @@ import Movie from "../components/Movie/Movie";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
-
+  const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const { movieId } = useParams();
 
   useEffect(() => {
-    fetchFilms("movie", movieId).then(({ data }) => setMovie(data));
+    const type = `movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+
+    fetchFilms(type).then(({ data }) => setMovie(data));
   }, []);
 
   return (

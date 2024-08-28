@@ -1,21 +1,22 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Form from "./Form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { setUsers } from "../store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
+import { useState } from "react";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = (email, password) => {
     const auth = getAuth();
-    console.log(email, password);
 
+    setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
-
         dispatch(
           setUsers({
             email: user.email,
@@ -26,11 +27,17 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => alert("Неправильный логин или пароль"));
+
+    setTimeout(() => setIsLoading(false), 4000);
   };
 
   return (
     <div>
-      <Form title="Войти" handleClick={handleLogin} />
+      {!isLoading ? (
+        <Form title="Войти" handleClick={handleLogin} />
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
