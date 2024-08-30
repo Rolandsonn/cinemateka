@@ -4,8 +4,8 @@ const Loader = () => {
     <div className="laoder">
       <ColorRing
         visible={true}
-        height="180"
-        width="180"
+        height="280"
+        width="280"
         ariaLabel="color-ring-loading"
         wrapperStyle={{}}
         wrapperClass="color-ring-wrapper"

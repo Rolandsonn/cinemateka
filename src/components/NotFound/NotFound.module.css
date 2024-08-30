@@ -1,0 +1,22 @@
+/* NotFound.module.css */
+
+.notFoundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Полная высота экрана */
+  text-align: center;
+  background-color: #f8d7da; /* Легкий красноватый фон */
+  color: #721c24; /* Темный красный цвет текста */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.notFoundText {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.notFoundMessage {
+  font-size: 1.5rem;
+}

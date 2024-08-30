@@ -45,3 +45,8 @@
   color: #fff;
   font-size: 20px;
 }
+.noImage {
+  text-align: center;
+  padding-top: 70px;
+  color: #fff;
+}
